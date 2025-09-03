@@ -628,8 +628,6 @@ GameObject:
   - component: {fileID: 2085455437}
   - component: {fileID: 2085455436}
   - component: {fileID: 2085455441}
-  - component: {fileID: 2085455443}
-  - component: {fileID: 2085455442}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -755,55 +753,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2085455442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085455435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b4f98e62f1d104f8658bba08e5d56f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingWeapons: []
-  WeaponCamera: {fileID: 0}
-  WeaponParentSocket: {fileID: 0}
-  DefaultWeaponPosition: {fileID: 0}
-  AimingWeaponPosition: {fileID: 0}
-  DownWeaponPosition: {fileID: 0}
-  BobFrequency: 10
-  BobSharpness: 10
-  DefaultBobAmount: 0.05
-  AimingBobAmount: 0.02
-  RecoilSharpness: 50
-  MaxRecoilDistance: 0.5
-  RecoilRestitutionSharpness: 10
-  AimingAnimationSpeed: 10
-  DefaultFov: 60
-  WeaponFovMultiplier: 1
-  WeaponSwitchDelay: 1
-  FpsWeaponLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &2085455443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085455435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac5ddb3ce9b8884ca9588dc620ffcab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LookSensitivity: 1
-  WebglLookSensitivityMultiplier: 0.25
-  TriggerAxisThreshold: 0.4
-  InvertYAxis: 0
-  InvertXAxis: 0
 --- !u!1 &2135215785
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +882,6 @@ MonoBehaviour:
   AudioSource: {fileID: 0}
   GravityDownForce: 20
   GroundCheckLayers:
-    serializedVersion: 2
     m_Bits: 4294967295
   GroundCheckDistance: 0.05
   MaxSpeedOnGround: 10
@@ -961,6 +909,23 @@ MonoBehaviour:
   MaxSpeedForFallDamage: 30
   FallDamageAtMinSpeed: 10
   FallDamageAtMaxSpeed: 50
+  <CharacterVelocity>k__BackingField: {x: 0, y: 0, z: 0}
+  <IsGrounded>k__BackingField: 0
+  <HasJumpedThisFrame>k__BackingField: 0
+  <IsDead>k__BackingField: 0
+  <IsCrouching>k__BackingField: 0
+  m_Health: {fileID: 0}
+  m_InputHandler: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_WeaponsManager: {fileID: 0}
+  m_Actor: {fileID: 0}
+  m_GroundNormal: {x: 0, y: 0, z: 0}
+  m_CharacterVelocity: {x: 0, y: 0, z: 0}
+  m_LatestImpactSpeed: {x: 0, y: 0, z: 0}
+  m_LastTimeJumped: 0
+  m_CameraVerticalAngle: 0
+  m_FootstepDistanceCounter: 0
+  m_TargetCharacterHeight: 0
 --- !u!82 &2135215791
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1075,6 +1040,9 @@ MonoBehaviour:
   TriggerAxisThreshold: 0.4
   InvertYAxis: 0
   InvertXAxis: 0
+  m_GameFlowManager: {fileID: 0}
+  m_PlayerCharacterController: {fileID: 0}
+  m_FireInputWasHeld: 0
 --- !u!143 &2135215793
 CharacterController:
   m_ObjectHideFlags: 0
