@@ -30,8 +30,47 @@ public class PlayerMovement : MonoBehaviour
       // Ground check
       isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+      // Resetting the defult velocity
+        if(isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
 
+        // Getting input from the player
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
+        // Creating the movement vector
+        Vector3 move = transform.right * x + transform.forward * z; //(right - red, forward - blue)
+
+        //Actually moving the player
+        controller.Move(move * speed * Time.deltaTime);
+
+        // Check if the player can jump
+        if(Input.GetButtonDown("Jump") && isGrounded)
+        {
+            // Actually jumping
+            velocity.y = Mathf.Sqrt(jumpHieght * -2f * gravity);
+        }
+
+        // Falling down
+        velocity.y += gravity * Time.deltaTime;
+
+        // Exectuting the jump
+        controller.Move(velocity * Time.deltaTime);
+
+        if (lastPosition != gameObject.transform.position && isGrounded == true)
+        {
+           isMoving = true;
+            // for later use
+        }
+        else
+        {
+            isMoving = false;
+            // for later use
+        }
+
+        lastPosition = gameObject.transform.position;
 
 
     }
