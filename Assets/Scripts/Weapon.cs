@@ -9,7 +9,13 @@ public class Weapon : MonoBehaviour
     public float bulletVelocity = 30;
     public float bulletPrefabLifeTime = 3f;
 
-    // Update is called once per frame
+    public enum ShootingMode
+    {
+        Single,
+        Burst,
+        Automatic
+    }
+
     void Update()
     {
         // left mouse button
