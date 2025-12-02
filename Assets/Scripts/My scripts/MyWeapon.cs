@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyWeapons : MonoBehaviour
+public class MyWeapon : MonoBehaviour
 {
     public Camera playerCamera;
 
@@ -40,7 +40,14 @@ public class MyWeapons : MonoBehaviour
         burstBulletsLeft = bulletsPerBurst;
     }
 
-    void Update()
+    // Single Update method that delegates to a helper.
+    // If you have another Update in this class (in another file), remove or rename it.
+    private void Update()
+    {
+        HandleShootingInput();
+    }
+    // Extracted update logic. Keeps behavior identical but avoids duplication in the class.
+    private void HandleShootingInput()
     {
         if (currentShootingMode == ShootingMode.Auto)
         {
